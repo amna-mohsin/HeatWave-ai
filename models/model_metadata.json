@@ -1,0 +1,131 @@
+{
+  "project": "HeatWave AI",
+  "task": "Binary classification",
+  "location": "Karachi, Pakistan",
+  "target": "danger_5to7d",
+  "target_definition": "1 if station heat index >= 40.6 C on any of days t+5..t+7",
+  "prediction_contract": "features of issue day t (and its past) -> label for t+5..t+7",
+  "model": "Logistic Regression",
+  "best_params": {
+    "C": 1
+  },
+  "decision_threshold": 0.3780903271032112,
+  "primary_metric": "PR-AUC",
+  "features": [
+    "temperature_2m_max",
+    "temperature_2m_min",
+    "temperature_2m_mean",
+    "apparent_temperature_max",
+    "apparent_temperature_mean",
+    "precipitation_sum",
+    "wind_speed_10m_max",
+    "wind_gusts_10m_max",
+    "shortwave_radiation_sum",
+    "et0_fao_evapotranspiration",
+    "relative_humidity_2m_mean",
+    "dew_point_2m_mean",
+    "surface_pressure_mean",
+    "cloud_cover_mean",
+    "temp_range",
+    "dew_point_depression",
+    "heat_index_era",
+    "tmax_roll3",
+    "tmax_roll7",
+    "heat_index_roll3",
+    "heat_index_roll7",
+    "humidity_roll3",
+    "dew_point_roll7",
+    "pressure_change_3d",
+    "month_sin",
+    "month_cos",
+    "doy_sin",
+    "doy_cos",
+    "season"
+  ],
+  "feature_version": "1.0",
+  "trained_utc": "2026-11-12 13:41",
+  "data_downloaded_utc": "2026-11-12 11:25",
+  "dataset_rows": 14772,
+  "split": {
+    "train": {
+      "rows": 10333,
+      "from": "1980-01-01",
+      "to": "2012-04-13",
+      "positive_rate": 0.3316
+    },
+    "validation": {
+      "rows": 2209,
+      "from": "2012-04-21",
+      "to": "2019-05-15",
+      "positive_rate": 0.2422
+    },
+    "test": {
+      "rows": 2216,
+      "from": "2019-05-23",
+      "to": "2025-08-17",
+      "positive_rate": 0.4761
+    }
+  },
+  "test_metrics_threshold_0.5": {
+    "pr_auc": 0.9622895058228572,
+    "roc_auc": 0.9663960223863233,
+    "accuracy": 0.8894404332129964,
+    "precision": 0.8820754716981132,
+    "recall": 0.8862559241706162,
+    "f1": 0.8841607565011821,
+    "brier": 0.07469499968368486,
+    "threshold": 0.5,
+    "confusion_matrix": [
+      [
+        1036,
+        125
+      ],
+      [
+        120,
+        935
+      ]
+    ]
+  },
+  "test_metrics_tuned_threshold": {
+    "pr_auc": 0.9622895058228572,
+    "roc_auc": 0.9663960223863233,
+    "accuracy": 0.8871841155234657,
+    "precision": 0.837951301427372,
+    "recall": 0.9459715639810427,
+    "f1": 0.8886910062333037,
+    "brier": 0.07469499968368486,
+    "threshold": 0.3780903271032112,
+    "confusion_matrix": [
+      [
+        968,
+        193
+      ],
+      [
+        57,
+        998
+      ]
+    ]
+  },
+  "top_features": {
+    "season": 0.2247750810925351,
+    "doy_cos": 0.19048334530497213,
+    "relative_humidity_2m_mean": 0.11479217510399979,
+    "surface_pressure_mean": 0.0877791433763813,
+    "dew_point_depression": 0.06497730551089904,
+    "heat_index_roll7": 0.034924116470370116,
+    "dew_point_roll7": 0.0331985700940494,
+    "temperature_2m_mean": 0.028011807658795924,
+    "cloud_cover_mean": 0.016754304988419715,
+    "pressure_change_3d": 0.013428978030415798,
+    "humidity_roll3": 0.012350166257119044,
+    "doy_sin": 0.01071070631732037,
+    "month_sin": 0.01042008529260611,
+    "heat_index_roll3": 0.008885314023897398,
+    "tmax_roll3": 0.007559726433906381
+  },
+  "versions": {
+    "python": "3.12.3",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.1.1"
+  }
+}

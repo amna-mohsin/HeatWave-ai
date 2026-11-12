@@ -1,0 +1,13 @@
+# Methodology
+1. **Collection** – `src/collect.py`; sources, licences and real download time in `data/DATA_SOURCES.md`.
+2. **Cleaning** – GSOD sentinels (9999.9 / 999.9 / 99.99) → NaN; °F → °C; duplicates dropped; physical range checks (RH 0–100 etc.). Extreme temperatures are **kept** (heatwaves are the signal). Gaps in dates are not invented.
+3. **Merge** – inner join on calendar date; features from ERA5 only, labels from GSOD only.
+4. **Labels** – station heat index = NWS Rothfusz equation using GSOD max temperature and RH derived from GSOD mean dew point (Magnus formula). `danger_5to7d` = 1 if any of t+5..t+7 ≥ 40.6 °C; unknown if future days missing (row dropped). Calendar-date based, not row-position based.
+5. **Features (29)** – 14 raw ERA5 daily variables + temp range, dew-point depression, ERA5 heat index, rolling 3/7-day means, 3-day pressure change, cyclic month/day-of-year, categorical season. Rolling windows only use past days (unit-tested).
+6. **Split** – chronological 70/15/15; 7-day purge before each boundary.
+7. **Pipeline** – ColumnTransformer: median imputation (+ log1p for precipitation, + StandardScaler for LR/SVM) for numerics; most-frequent imputation + one-hot for `season`. All inside `Pipeline` → fitted on training folds only.
+8. **Models** – Dummy baseline plus six classifiers: Logistic Regression, K-Nearest Neighbors, Decision Tree, Random Forest, Gradient Boosting, and SVM (RBF, sigmoid-calibrated for probabilities). KNN, LR, and SVM use scaled numeric features; decision-tree depth and minimum leaf size are tuned to limit overfitting.
+9. **Tuning** – GridSearchCV, `TimeSeriesSplit(n_splits=5, gap=7)`, scoring = average precision (PR-AUC), training period only.
+10. **Selection & threshold** – best validation PR-AUC (Dummy excluded); decision threshold = max F2 on validation (recall weighted higher than precision).
+11. **Final evaluation** – test set evaluated once after selection. Reported: PR-AUC, ROC-AUC, accuracy, precision, recall, F1, Brier, confusion matrix, calibration plot, permutation importance.
+12. **Known limitations** – ERA5 grid vs airport station; live inputs (Open-Meteo forecast API recent days) are a different product from ERA5 training inputs; single station; threshold is project-defined; probabilities are not guaranteed risks; climate non-stationarity. Dangerous-label prevalence also differs between validation (24.2%) and test (47.6%), so the temporal distribution shift must be considered when interpreting the reported test metrics.

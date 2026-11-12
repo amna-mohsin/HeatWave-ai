@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+hf_space/
+docs/proposal.md
+docs/report_template.md
+docs/VIVA_GUIDE.md
+docs/viva_guide.md
+reports/HeatWave_AI_Report.pdf

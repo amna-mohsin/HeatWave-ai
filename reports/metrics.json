@@ -1,0 +1,202 @@
+{
+  "comparison": {
+    "Dummy (baseline)": {
+      "best_params": null,
+      "cv_pr_auc": null,
+      "train_pr_auc": 0.33155908255105004,
+      "val_pr_auc": 0.24219103666817565,
+      "val_f1": 0.0,
+      "val_recall": 0.0,
+      "val_roc_auc": 0.5,
+      "test_pr_auc": 0.4760830324909747,
+      "test_f1": 0.0,
+      "test_recall": 0.0,
+      "test_roc_auc": 0.5,
+      "test_precision": 0.0,
+      "test_accuracy": 0.5239169675090253
+    },
+    "Logistic Regression": {
+      "best_params": {
+        "C": 1
+      },
+      "cv_pr_auc": 0.8825898221409767,
+      "train_pr_auc": 0.8978968707490728,
+      "val_pr_auc": 0.7983313352676104,
+      "val_f1": 0.6865671641791045,
+      "val_recall": 0.8598130841121495,
+      "val_roc_auc": 0.919060060965397,
+      "test_pr_auc": 0.9622895058228572,
+      "test_f1": 0.8841607565011821,
+      "test_recall": 0.8862559241706162,
+      "test_roc_auc": 0.9663960223863233,
+      "test_precision": 0.8820754716981132,
+      "test_accuracy": 0.8894404332129964
+    },
+    "K-Nearest Neighbors": {
+      "best_params": {
+        "n_neighbors": 21
+      },
+      "cv_pr_auc": 0.8555052351851147,
+      "train_pr_auc": 0.91339555046607,
+      "val_pr_auc": 0.758498686884798,
+      "val_f1": 0.677570093457944,
+      "val_recall": 0.8130841121495327,
+      "val_roc_auc": 0.9094725264909165,
+      "test_pr_auc": 0.9486624386210543,
+      "test_f1": 0.83640081799591,
+      "test_recall": 0.7753554502369668,
+      "test_roc_auc": 0.9584069134713904,
+      "test_precision": 0.9078801331853497,
+      "test_accuracy": 0.855595667870036
+    },
+    "Decision Tree": {
+      "best_params": {
+        "max_depth": 8,
+        "min_samples_leaf": 30
+      },
+      "cv_pr_auc": 0.8408763939423471,
+      "train_pr_auc": 0.9179615191159736,
+      "val_pr_auc": 0.7192601623146864,
+      "val_f1": 0.6597774244833068,
+      "val_recall": 0.7757009345794392,
+      "val_roc_auc": 0.8974547504996706,
+      "test_pr_auc": 0.9371272326133847,
+      "test_f1": 0.8068181818181818,
+      "test_recall": 0.7402843601895734,
+      "test_roc_auc": 0.9479587379730662,
+      "test_precision": 0.8864926220204313,
+      "test_accuracy": 0.8312274368231047
+    },
+    "Random Forest": {
+      "best_params": {
+        "max_depth": 8,
+        "n_estimators": 300
+      },
+      "cv_pr_auc": 0.8825696831503306,
+      "train_pr_auc": 0.9592125416452034,
+      "val_pr_auc": 0.793177250180191,
+      "val_f1": 0.6767275615567911,
+      "val_recall": 0.7962616822429907,
+      "val_roc_auc": 0.9154557330921516,
+      "test_pr_auc": 0.9577909645559743,
+      "test_f1": 0.8532526475037822,
+      "test_recall": 0.8018957345971564,
+      "test_roc_auc": 0.9621440905250008,
+      "test_precision": 0.9116379310344828,
+      "test_accuracy": 0.8686823104693141
+    },
+    "Gradient Boosting": {
+      "best_params": {
+        "n_estimators": 100
+      },
+      "cv_pr_auc": 0.8813279327755076,
+      "train_pr_auc": 0.9351837875525095,
+      "val_pr_auc": 0.7678127356533831,
+      "val_f1": 0.6842105263157895,
+      "val_recall": 0.8261682242990654,
+      "val_roc_auc": 0.9156623008296206,
+      "test_pr_auc": 0.9576400361018629,
+      "test_f1": 0.8564356435643564,
+      "test_recall": 0.8199052132701422,
+      "test_roc_auc": 0.9615844324430238,
+      "test_precision": 0.8963730569948186,
+      "test_accuracy": 0.8691335740072202
+    },
+    "SVM (RBF)": {
+      "best_params": {
+        "C": 0.5
+      },
+      "cv_pr_auc": 0.8789835061312574,
+      "train_pr_auc": 0.9035374571171,
+      "val_pr_auc": 0.7966623437906128,
+      "val_f1": 0.6985962014863749,
+      "val_recall": 0.7906542056074767,
+      "val_roc_auc": 0.911854754966,
+      "test_pr_auc": 0.9575902308556616,
+      "test_f1": 0.8325508607198748,
+      "test_recall": 0.7563981042654029,
+      "test_roc_auc": 0.9609251707344951,
+      "test_precision": 0.925754060324826,
+      "test_accuracy": 0.85514440433213
+    }
+  },
+  "selected": "Logistic Regression",
+  "decision_threshold": 0.3780903271032112,
+  "split": {
+    "train": {
+      "rows": 10333,
+      "from": "1980-01-01",
+      "to": "2012-04-13",
+      "positive_rate": 0.3316
+    },
+    "validation": {
+      "rows": 2209,
+      "from": "2012-04-21",
+      "to": "2019-05-15",
+      "positive_rate": 0.2422
+    },
+    "test": {
+      "rows": 2216,
+      "from": "2019-05-23",
+      "to": "2025-08-17",
+      "positive_rate": 0.4761
+    }
+  },
+  "test_metrics_threshold_0.5": {
+    "pr_auc": 0.9622895058228572,
+    "roc_auc": 0.9663960223863233,
+    "accuracy": 0.8894404332129964,
+    "precision": 0.8820754716981132,
+    "recall": 0.8862559241706162,
+    "f1": 0.8841607565011821,
+    "brier": 0.07469499968368486,
+    "threshold": 0.5,
+    "confusion_matrix": [
+      [
+        1036,
+        125
+      ],
+      [
+        120,
+        935
+      ]
+    ]
+  },
+  "test_metrics_tuned_threshold": {
+    "pr_auc": 0.9622895058228572,
+    "roc_auc": 0.9663960223863233,
+    "accuracy": 0.8871841155234657,
+    "precision": 0.837951301427372,
+    "recall": 0.9459715639810427,
+    "f1": 0.8886910062333037,
+    "brier": 0.07469499968368486,
+    "threshold": 0.3780903271032112,
+    "confusion_matrix": [
+      [
+        968,
+        193
+      ],
+      [
+        57,
+        998
+      ]
+    ]
+  },
+  "top_features": {
+    "season": 0.2247750810925351,
+    "doy_cos": 0.19048334530497213,
+    "relative_humidity_2m_mean": 0.11479217510399979,
+    "surface_pressure_mean": 0.0877791433763813,
+    "dew_point_depression": 0.06497730551089904,
+    "heat_index_roll7": 0.034924116470370116,
+    "dew_point_roll7": 0.0331985700940494,
+    "temperature_2m_mean": 0.028011807658795924,
+    "cloud_cover_mean": 0.016754304988419715,
+    "pressure_change_3d": 0.013428978030415798,
+    "humidity_roll3": 0.012350166257119044,
+    "doy_sin": 0.01071070631732037,
+    "month_sin": 0.01042008529260611,
+    "heat_index_roll3": 0.008885314023897398,
+    "tmax_roll3": 0.007559726433906381
+  }
+}

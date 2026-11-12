@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HeatWave AI - Karachi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<aside class="side">
+  <h1>HeatWave AI</h1><p>Weather intelligence, Karachi</p>
+  <nav><a href="#predict">Predict</a><a href="/docs">API docs</a><a href="/model-info">Model info</a><a href="/health">Health</a></nav>
+  <small>Danger = heat index &ge; 40.6&nbsp;&deg;C (105&nbsp;&deg;F) on any of days 5&ndash;7 ahead. A project threshold, not an official NOAA category.</small>
+</aside>
+<main>
+  <header><h2>Is dangerous heat coming next week?</h2>
+  <p>Enter today&rsquo;s Karachi conditions, or pull live data. The model returns a predicted probability for days 5&ndash;7.</p></header>
+
+  <section class="card" id="predict">
+    <form id="f" novalidate>
+      <div class="grid">
+        <label>Max temperature (&deg;C)<input name="temperature_2m_max" type="number" step="0.1" value="38" required></label>
+        <label>Min temperature (&deg;C)<input name="temperature_2m_min" type="number" step="0.1" value="28" required></label>
+        <label>Mean humidity (%)<input name="relative_humidity_2m_mean" type="number" step="1" value="65" required></label>
+        <label>Mean dew point (&deg;C)<input name="dew_point_2m_mean" type="number" step="0.1" value="24" required></label>
+        <label>Pressure (hPa) <em>optional</em><input name="surface_pressure_mean" type="number" step="0.1" placeholder="e.g. 1004"></label>
+        <label>Max wind (km/h) <em>optional</em><input name="wind_speed_10m_max" type="number" step="0.1" placeholder="e.g. 20"></label>
+      </div>
+      <div class="actions"><button type="submit" class="primary">Predict</button>
+      <button type="button" id="live" class="ghost">Use live Karachi data</button></div>
+    </form>
+    <p id="err" class="err" role="alert" hidden></p>
+  </section>
+
+  <section class="card result" id="result" hidden aria-live="polite">
+    <div class="badge" id="badge"></div>
+    <div class="prob"><span id="prob"></span><small>predicted probability (not a guarantee)</small></div>
+    <ul class="meta" id="meta"></ul>
+    <h3>Recommended precautions</h3>
+    <ul><li>Avoid prolonged outdoor exposure in the afternoon.</li><li>Stay hydrated; prefer shaded or cooled spaces.</li>
+    <li>Check on elderly neighbours and outdoor workers.</li><li>Follow official PMD advisories.</li></ul>
+  </section>
+</main>
+<script src="/static/script.js"></script>
+</body></html>
