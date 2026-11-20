@@ -145,7 +145,7 @@ def build():
         y = paragraph(ax, "ERA5 is a gridded reanalysis while NOAA GSOD is one airport station; their measurements differ. The app's current-weather API product differs from the historical ERA5 training product. Dangerous-label prevalence changes substantially across validation and test time periods. Probabilities are model estimates, not guarantees, and HeatWave AI is not an official public warning system; follow Pakistan Meteorological Department advisories.", .07, y)
         y -= .02
         y = heading(ax, "Team contributions (complete with actual information)", y)
-        y = paragraph(ax, "Member 1: [name and roll number] — [actual tasks].\nMember 2: [name and roll number] — [actual tasks].\nMember 3, if applicable: [name and roll number] — [actual tasks].", .07, y, width=95)
+        y = paragraph(ax, "Hamna Ali Khan (CT-24157) — [actual tasks].\nAmna Mohsin (CT-24169) — [actual tasks].", .07, y, width=95)
         y -= .02
         y = heading(ax, "References", y)
         for ref in [

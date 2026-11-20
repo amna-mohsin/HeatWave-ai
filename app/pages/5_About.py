@@ -21,5 +21,7 @@ Logistic Regression, K-Nearest Neighbors, Decision Tree, Random Forest, Gradient
 and labels come from a single airport station. Probabilities are not guaranteed real-world risks. This is a student project, not an
 official warning system – follow Pakistan Meteorological Department advisories.
 
-**Team.** *Add your names and roll numbers here.*
+**Team.**
+- Hamna Ali Khan (CT-24157)
+- Amna Mohsin (CT-24169)
 """)
