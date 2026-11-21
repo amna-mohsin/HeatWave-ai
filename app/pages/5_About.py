@@ -13,8 +13,8 @@ not an official NOAA category boundary.
 - NOAA NCEI Global Summary of the Day, Karachi Jinnah Intl Airport (41780099999) – target labels – NOAA open data (free to use, citation required).
 
 **Method.** Cleaning → merge on date → feature engineering (rolling means, heat index, seasonality) → chronological 70/15/15
-split with a 7-day purge → sklearn Pipeline (impute, log1p, scale, one-hot) → Dummy and persistence baselines + five classifiers:
-Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, and SVM → 5-fold time-series GridSearchCV (PR-AUC)
+split with a 7-day purge → sklearn Pipeline (impute, log1p, scale, one-hot) → Dummy and persistence baselines + four classifiers:
+Logistic Regression, Random Forest, Gradient Boosting, and SVM → 5-fold time-series GridSearchCV (PR-AUC)
 → threshold chosen on validation → single test evaluation.
 
 **Limitations.** ERA5 is a gridded reanalysis, the live inputs come from a different product (Open-Meteo forecast API's recent days),

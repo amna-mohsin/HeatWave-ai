@@ -7,22 +7,19 @@ BASELINES = {"Dummy (baseline)", "Persistence (baseline)"}
 
 def test_classifiers_and_baselines_are_configured():
     assert BASELINES <= set(MODELS)
-    assert len(MODELS) == 7
+    assert len(MODELS) == 6
     assert set(MODELS) - BASELINES == {
         "Logistic Regression",
-        "Decision Tree",
         "Random Forest",
         "Gradient Boosting",
         "SVM (RBF)",
     }
 
 
-def test_decision_tree_has_depth_and_leaf_size_search():
-    _, scale, grid = MODELS["Decision Tree"]
+def test_random_forest_depth_is_limited():
+    _, scale, grid = MODELS["Random Forest"]
     assert scale is False
-    assert set(grid) == {"classifier__max_depth", "classifier__min_samples_leaf"}
-    assert len(grid["classifier__max_depth"]) >= 2
-    assert len(grid["classifier__min_samples_leaf"]) >= 2
+    assert all(d is not None for d in grid["classifier__max_depth"])
 
 
 def test_persistence_uses_only_todays_heat_index():

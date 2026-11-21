@@ -47,24 +47,6 @@
       "test_precision": 0.8820754716981132,
       "test_accuracy": 0.8894404332129964
     },
-    "Decision Tree": {
-      "best_params": {
-        "max_depth": 8,
-        "min_samples_leaf": 30
-      },
-      "cv_pr_auc": 0.8408763939423471,
-      "train_pr_auc": 0.9179615191159736,
-      "val_pr_auc": 0.7192601623146864,
-      "val_f1": 0.6597774244833068,
-      "val_recall": 0.7757009345794392,
-      "val_roc_auc": 0.8974547504996706,
-      "test_pr_auc": 0.9371272326133847,
-      "test_f1": 0.8068181818181818,
-      "test_recall": 0.7402843601895734,
-      "test_roc_auc": 0.9479587379730662,
-      "test_precision": 0.8864926220204313,
-      "test_accuracy": 0.8312274368231047
-    },
     "Random Forest": {
       "best_params": {
         "max_depth": 8,

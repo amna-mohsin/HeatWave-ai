@@ -7,7 +7,7 @@ tags: [tabular-classification, weather, heat-index, karachi, scikit-learn]
 
 **Task:** binary classification – will station heat index reach ≥ 40.6 °C (105 °F) on any of days 5–7 after the issue day?
 **Model:** see `model_metadata.json` (`model`, `best_params`, `decision_threshold`). The file `heatwave_pipeline.joblib` is the *entire* scikit-learn Pipeline (imputation, scaling/encoding, classifier).
-Candidate comparison includes a prior Dummy baseline, a persistence baseline (today's heat index only) and five classifiers: Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, and SVM. Decision Tree depth and minimum leaf size are tuned to discourage overly complex trees.
+Candidate comparison includes a prior Dummy baseline, a persistence baseline (today's heat index only) and four classifiers: Logistic Regression, Random Forest, Gradient Boosting, and SVM. Random Forest depth is capped to discourage overly complex trees.
 
 ## Usage
 ```python
