@@ -26,7 +26,7 @@ for col, (k, lab) in zip(c, [("pr_auc", "PR-AUC"), ("roc_auc", "ROC-AUC"), ("rec
 st.subheader("Model comparison")
 tbl = pd.DataFrame(m["comparison"]).T[["cv_pr_auc", "train_pr_auc", "val_pr_auc", "test_pr_auc", "test_roc_auc", "test_f1", "test_recall"]].astype(float).round(3)
 st.dataframe(tbl)
-st.caption("Six tuned classifiers are compared with the Dummy baseline. Model selection used validation only; held-out test results are reported separately.")
+st.caption("Five tuned classifiers are compared with two baselines: Dummy (ignores the weather) and Persistence (today's heat index only, no ML). Model selection used validation only; held-out test results are reported separately.")
 interpretations = {
     "eval_pr_curves.png": "Higher curves are better: they mean the model finds more dangerous days without creating as many false alarms. The dotted line is the test-set danger-day rate.",
     "eval_confusion_matrix.png": "The diagonal boxes are correct predictions. The off-diagonal boxes show missed dangerous days and unnecessary alerts.",

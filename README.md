@@ -14,12 +14,22 @@ An educational machine-learning project that estimates whether the Karachi airpo
 
 HeatWave AI is a **binary classification** project. It combines daily weather features with a historical station-based target label to estimate a probability of dangerous heat. It is intended for learning and demonstration, not as an official warning service.
 
-The project compares six trained classifiers against a simple Dummy baseline. Model selection uses validation data; the newest period is held out for final testing. See the [model card](docs/model_card.md) and [graph interpretations](reports/GRAPH_INTERPRETATIONS.md) for methodology and plain-language explanations.
+The project compares five tuned classifiers against two baselines: a Dummy that ignores the weather, and a persistence rule ("hot today, danger next week") that uses only today's heat index. Model selection uses validation data; the newest period is held out for final testing. See the [model card](docs/model_card.md) and [graph interpretations](reports/GRAPH_INTERPRETATIONS.md) for methodology and plain-language explanations.
+
+## Deployments
+
+| Platform | Link |
+|---|---|
+| Streamlit Community Cloud | [https://heatwave-ai.streamlit.app/](https://heatwave-ai.streamlit.app/) |
+| Hugging Face (model + Space) | _Add the Hub model and Space URLs here after publishing (see [`deploy/huggingface/`](deploy/huggingface/))_ |
+| Local FastAPI web app | [http://127.0.0.1:8000](http://127.0.0.1:8000) after `uvicorn api.main:app` (`POST /predict`, docs at `/docs`) |
+
+The project report is in [`reports/HeatWave_AI_Report.pdf`](reports/HeatWave_AI_Report.pdf).
 
 ## Features
 
 - **Reproducible data workflow:** collect weather data, clean and join it, build features and labels, then produce EDA charts.
-- **Six classifiers plus a baseline:** Logistic Regression, K-Nearest Neighbors, Decision Tree, Random Forest, Gradient Boosting, SVM, and Dummy.
+- **Five classifiers plus two baselines:** Logistic Regression, Decision Tree, Random Forest, Gradient Boosting and SVM, compared with a Dummy baseline (beats guessing?) and a persistence baseline (beats "hot stays hot"?).
 - **Chronological evaluation:** time-ordered train, validation, and test splits help avoid training on future observations.
 - **Shared prediction code:** the Streamlit dashboard and FastAPI app use the same saved pipeline and prediction logic.
 - **Readable results:** model comparisons, evaluation graphs, and short interpretations are included.
@@ -111,7 +121,7 @@ python -m src.train
 python -m pytest -q
 ```
 
-Collection downloads data from the sources described in [`data/DATA_SOURCES.md`](data/DATA_SOURCES.md). Training runs five-fold time-series tuning for the six classifiers and compares them with the Dummy baseline; a full run may take 10–30 minutes. To run the smaller development smoke test instead, use `HEATWAVE_FAST=1 python -m src.train` (do not use that mode for final results).
+Collection downloads data from the sources described in [`data/DATA_SOURCES.md`](data/DATA_SOURCES.md). Training runs five-fold time-series tuning for the five classifiers and compares them with the Dummy and persistence baselines; a full run may take 10–30 minutes. To run the smaller development smoke test instead, use `HEATWAVE_FAST=1 python -m src.train` (do not use that mode for final results).
 
 ## Machine learning
 

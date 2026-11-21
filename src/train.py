@@ -41,7 +41,7 @@ def main():
         print({k: v for k, v in table[name].items() if k != "best_params"})
 
     # ---- model selection uses VALIDATION only (never the test set) ----
-    best = max((n for n in MODELS if not n.startswith("Dummy")), key=lambda n: table[n]["val_pr_auc"])
+    best = max((n for n in MODELS if "(baseline)" not in n), key=lambda n: table[n]["val_pr_auc"])   # baselines never selected
     pipe = fitted[best]
     thr = ev.best_threshold_f2(yva, pipe.predict_proba(Xva)[:, 1])
     print(f"\nSelected: {best} | threshold (max F2 on validation) = {thr:.3f}")

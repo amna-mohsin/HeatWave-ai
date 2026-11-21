@@ -35,7 +35,7 @@ Then run the 4 pipeline steps, one by one, and read the output:
 python -m src.collect       # 1. downloads both datasets (a few minutes)
 python -m src.data_loader   # 2. cleans, merges, builds features + labels. Prints rows/features/class balance
 python -m src.eda           # 3. makes 10 charts in reports/figures
-python -m src.train         # 4. tunes 6 classifiers vs Dummy baseline and saves the best
+python -m src.train         # 4. tunes 5 classifiers vs Dummy + persistence baselines and saves the best
 python -m pytest -q         # 5. checks everything
 python scripts/build_report.py  # creates a four-page report draft from saved metrics and figures
 ```
@@ -72,4 +72,4 @@ Streamlit Home -> Heat Prediction (click Predict) -> Model Insights (table + cha
 | Live prediction fails in the app | no internet / Open-Meteo down; use "Manual scenario" |
 
 ## G. CT-378 items to finish before submission
-The local project includes the data pipeline, six tuned classifiers plus baseline, saved model, EDA/evaluation charts, tests, Streamlit dashboard, and local FastAPI + HTML app. You still need to publish and test the public Streamlit Cloud and Hugging Face deployments, add your actual deployment links and screenshots, fill in all group members' real names/contributions, and prepare the 3–4 page PDF report. These steps require your accounts and team information.
+The local project includes the data pipeline, five tuned classifiers plus two baselines, saved model, EDA/evaluation charts, tests, Streamlit dashboard, and local FastAPI + HTML app. You still need to publish and test the public Streamlit Cloud and Hugging Face deployments, add your actual deployment links and screenshots, fill in all group members' real names/contributions, and prepare the 3–4 page PDF report. These steps require your accounts and team information.

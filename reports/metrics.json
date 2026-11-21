@@ -15,6 +15,21 @@
       "test_precision": 0.0,
       "test_accuracy": 0.5239169675090253
     },
+    "Persistence (baseline)": {
+      "best_params": null,
+      "cv_pr_auc": null,
+      "train_pr_auc": 0.8315054616807748,
+      "val_pr_auc": 0.6608326006266468,
+      "val_f1": 0.627906976744186,
+      "val_recall": 0.908411214953271,
+      "val_roc_auc": 0.8738301008273874,
+      "test_pr_auc": 0.9332063688256796,
+      "test_f1": 0.871447902571042,
+      "test_recall": 0.9156398104265403,
+      "test_roc_auc": 0.9485490119238604,
+      "test_precision": 0.8313253012048193,
+      "test_accuracy": 0.8713898916967509
+    },
     "Logistic Regression": {
       "best_params": {
         "C": 1
@@ -31,23 +46,6 @@
       "test_roc_auc": 0.9663960223863233,
       "test_precision": 0.8820754716981132,
       "test_accuracy": 0.8894404332129964
-    },
-    "K-Nearest Neighbors": {
-      "best_params": {
-        "n_neighbors": 21
-      },
-      "cv_pr_auc": 0.8555052351851147,
-      "train_pr_auc": 0.91339555046607,
-      "val_pr_auc": 0.758498686884798,
-      "val_f1": 0.677570093457944,
-      "val_recall": 0.8130841121495327,
-      "val_roc_auc": 0.9094725264909165,
-      "test_pr_auc": 0.9486624386210543,
-      "test_f1": 0.83640081799591,
-      "test_recall": 0.7753554502369668,
-      "test_roc_auc": 0.9584069134713904,
-      "test_precision": 0.9078801331853497,
-      "test_accuracy": 0.855595667870036
     },
     "Decision Tree": {
       "best_params": {
@@ -89,7 +87,7 @@
       "best_params": {
         "n_estimators": 100
       },
-      "cv_pr_auc": 0.8813279327755076,
+      "cv_pr_auc": 0.8811735862569794,
       "train_pr_auc": 0.9351837875525095,
       "val_pr_auc": 0.7678127356533831,
       "val_f1": 0.6842105263157895,
@@ -121,7 +119,7 @@
     }
   },
   "selected": "Logistic Regression",
-  "decision_threshold": 0.3780903271032112,
+  "decision_threshold": 0.37809032706061885,
   "split": {
     "train": {
       "rows": 10333,
@@ -149,7 +147,7 @@
     "precision": 0.8820754716981132,
     "recall": 0.8862559241706162,
     "f1": 0.8841607565011821,
-    "brier": 0.07469499968368486,
+    "brier": 0.074694999681629,
     "threshold": 0.5,
     "confusion_matrix": [
       [
@@ -169,8 +167,8 @@
     "precision": 0.837951301427372,
     "recall": 0.9459715639810427,
     "f1": 0.8886910062333037,
-    "brier": 0.07469499968368486,
-    "threshold": 0.3780903271032112,
+    "brier": 0.074694999681629,
+    "threshold": 0.37809032706061885,
     "confusion_matrix": [
       [
         968,

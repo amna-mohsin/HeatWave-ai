@@ -6,17 +6,16 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, TimeSeriesSplit
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from .config import RANDOM_STATE, GAP_DAYS
+from .baselines import PersistenceClassifier
 from .preprocessing import make_pipeline
 
 MODELS = {   # name -> (estimator, needs_scaling, param_grid)
     "Dummy (baseline)": (DummyClassifier(strategy="prior"), False, {}),
+    "Persistence (baseline)": (PersistenceClassifier(), False, {}),   # today's heat index only, no ML
     "Logistic Regression": (LogisticRegression(max_iter=3000, random_state=RANDOM_STATE), True,
                             {"classifier__C": [0.1, 1]}),
-    "K-Nearest Neighbors": (KNeighborsClassifier(n_jobs=1), True,
-                            {"classifier__n_neighbors": [9, 21]}),
     "Decision Tree": (DecisionTreeClassifier(random_state=RANDOM_STATE), False,
                       {"classifier__max_depth": [4, 8],
                        "classifier__min_samples_leaf": [10, 30]}),

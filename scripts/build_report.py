@@ -108,7 +108,7 @@ def build():
                 f"test ROC-AUC {result['roc_auc']:.3f} · F1 {result['f1']:.3f} · "
                 f"precision {result['precision']:.3f} · recall {result['recall']:.3f}",
                 transform=ax.transAxes, fontsize=8, color=NAVY, va="top", wrap=True)
-        ax.text(.07, .075, "Dummy is a no-learning baseline; the six other rows are tuned classifiers.",
+        ax.text(.07, .075, "Dummy and Persistence are no-learning baselines; the five other rows are tuned classifiers.",
                 transform=ax.transAxes, fontsize=8, color=GREY, va="top")
         pdf.savefig(fig, bbox_inches="tight")
         plt.close(fig)
