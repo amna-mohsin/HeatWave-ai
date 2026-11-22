@@ -158,8 +158,8 @@ python -m pytest -q
 
 ## Authors
 
-- ### amna Ali Khan — [GitHub](https://github.com/HamnaAliKhan)
-- ### Amna Mohsin  — [GitHub](https://github.com/amna-mohsin) · [LinkedIn](https://www.linkedin.com/in/amna-m98/)
+- #### Hamna Ali Khan — [GitHub](https://github.com/HamnaAliKhan)
+- #### Amna Mohsin  — [GitHub](https://github.com/amna-mohsin) · [LinkedIn](https://www.linkedin.com/in/amna-m98/)
 
 ## License
 
