@@ -18,7 +18,7 @@
     "Persistence (baseline)": {
       "best_params": null,
       "cv_pr_auc": null,
-      "train_pr_auc": 0.8315054616807748,
+      "train_pr_auc": 0.8315055583784716,
       "val_pr_auc": 0.6608326006266468,
       "val_f1": 0.627906976744186,
       "val_recall": 0.908411214953271,
@@ -101,7 +101,7 @@
     }
   },
   "selected": "Logistic Regression",
-  "decision_threshold": 0.37809032706061885,
+  "decision_threshold": 0.37809032696347844,
   "split": {
     "train": {
       "rows": 10333,
@@ -129,7 +129,7 @@
     "precision": 0.8820754716981132,
     "recall": 0.8862559241706162,
     "f1": 0.8841607565011821,
-    "brier": 0.074694999681629,
+    "brier": 0.07469499967693918,
     "threshold": 0.5,
     "confusion_matrix": [
       [
@@ -149,8 +149,8 @@
     "precision": 0.837951301427372,
     "recall": 0.9459715639810427,
     "f1": 0.8886910062333037,
-    "brier": 0.074694999681629,
-    "threshold": 0.37809032706061885,
+    "brier": 0.07469499967693918,
+    "threshold": 0.37809032696347844,
     "confusion_matrix": [
       [
         968,

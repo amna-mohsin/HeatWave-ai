@@ -139,7 +139,7 @@ def build():
         fig, ax = new_page(pdf, "Deployment, limitations, and references", 4)
         y = .89
         y = heading(ax, "Deployment checklist", y)
-        y = paragraph(ax, "Local applications: Streamlit dashboard and FastAPI + HTML endpoint. Cloud items are not published yet: add the real public Streamlit Community Cloud URL and the Hugging Face model/Space URLs after publishing and testing an actual prediction. Deployment screenshots also need to be captured from the live services.", .07, y)
+        y = paragraph(ax, "Application: Streamlit dashboard. Publish and test the public Streamlit Community Cloud deployment, then add its URL and capture a deployment screenshot.", .07, y)
         y -= .02
         y = heading(ax, "Limitations", y)
         y = paragraph(ax, "ERA5 is a gridded reanalysis while NOAA GSOD is one airport station; their measurements differ. The app's current-weather API product differs from the historical ERA5 training product. Dangerous-label prevalence changes substantially across validation and test time periods. Probabilities are model estimates, not guarantees, and HeatWave AI is not an official public warning system; follow Pakistan Meteorological Department advisories.", .07, y)

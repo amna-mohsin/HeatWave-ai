@@ -21,8 +21,6 @@ The project compares four tuned classifiers against two baselines: a Dummy that 
 | Platform | Link |
 |---|---|
 | Streamlit Community Cloud | [https://heatwave-ai.streamlit.app/](https://heatwave-ai.streamlit.app/) |
-| Hugging Face (model + Space) | _Add the Hub model and Space URLs here after publishing (see [`deploy/huggingface/`](deploy/huggingface/))_ |
-| Local FastAPI web app | [http://127.0.0.1:8000](http://127.0.0.1:8000) after `uvicorn api.main:app` (`POST /predict`, docs at `/docs`) |
 
 The project report is in [`reports/HeatWave_AI_Report.pdf`](reports/HeatWave_AI_Report.pdf).
 
@@ -31,13 +29,13 @@ The project report is in [`reports/HeatWave_AI_Report.pdf`](reports/HeatWave_AI_
 - **Reproducible data workflow:** collect weather data, clean and join it, build features and labels, then produce EDA charts.
 - **Four classifiers plus two baselines:** Logistic Regression, Random Forest, Gradient Boosting and SVM, compared with a Dummy baseline (beats guessing?) and a persistence baseline (beats "hot stays hot"?).
 - **Chronological evaluation:** time-ordered train, validation, and test splits help avoid training on future observations.
-- **Shared prediction code:** the Streamlit dashboard and FastAPI app use the same saved pipeline and prediction logic.
+- **Shared prediction code:** the Streamlit dashboard uses the saved pipeline and prediction logic.
 - **Readable results:** model comparisons, evaluation graphs, and short interpretations are included.
 - **Data attribution:** collection dates and source credits are recorded in [`data/DATA_SOURCES.md`](data/DATA_SOURCES.md).
 
 ## Tech stack
 
-Python · pandas · scikit-learn · Streamlit · FastAPI · Plotly · pytest
+Python · pandas · scikit-learn · Streamlit · Plotly · pytest
 
 ## How it works
 
@@ -53,8 +51,6 @@ Open-Meteo provides weather input features; NOAA GSOD provides station observati
 
 ```text
 app/                 Streamlit dashboard
-api/                 FastAPI endpoints
-frontend/            HTML/CSS/JavaScript served by the API
 src/                 Data collection, feature engineering, training, prediction
 data/                Source credits and raw/processed datasets
 models/              Trained pipeline and model metadata
@@ -94,20 +90,14 @@ python -m pip install -r requirements.txt
 
 `requirements.txt` pins the versions used by the included trained model. `requirements.in` is for intentionally refreshing dependencies; after changing dependencies, retrain and test the model before updating the pins.
 
-### Run the applications
-
-Start each app in its own activated terminal:
+### Run the dashboard
 
 ```bash
 source .venv/bin/activate
 streamlit run app/Home.py
 ```
 
-```bash
-uvicorn api.main:app --reload
-```
-
-The Streamlit dashboard opens in your browser. The FastAPI page is at [http://127.0.0.1:8000](http://127.0.0.1:8000), with interactive API documentation at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+The Streamlit dashboard opens in your browser.
 
 ### Rebuild the dataset and model
 

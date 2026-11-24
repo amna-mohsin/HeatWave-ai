@@ -30,6 +30,14 @@ You know it worked when the prompt starts with `(.venv)`.
 
 `requirements.txt` is the exact dependency lock used by the included trained model. `requirements.in` is a separate set of minimum-version constraints used only when deliberately refreshing dependencies. For a refreshed environment, retrain and test the model, then regenerate `requirements.txt` with `python scripts/pin_requirements.py` before deployment.
 
+### Use the notebooks
+With `.venv` activated from the project root, install and register the shared notebook kernel once:
+```
+python -m pip install -r requirements-notebooks.txt
+python -m ipykernel install --user --name heatwave-ai --display-name "Python (HeatWave AI)"
+```
+Open a notebook in VS Code and select **Python (HeatWave AI)** from the kernel picker. All notebooks in `notebooks/` use this same kernel, which points to `.venv` and has the project dependencies installed. If you recreate `.venv`, rerun these two commands.
+
 Then run the 4 pipeline steps, one by one, and read the output:
 ```
 python -m src.collect       # 1. downloads both datasets (a few minutes)
@@ -42,9 +50,8 @@ python scripts/build_report.py  # creates a four-page report draft from saved me
 Then the apps:
 ```
 streamlit run app/Home.py           # dashboard opens in your browser
-uvicorn api.main:app --reload       # open http://127.0.0.1:8000
 ```
-Keep each app running in its own terminal. To open a second terminal in VS Code, choose **Terminal > New Terminal**, then activate `.venv` again before running the second command.
+Keep the dashboard running in its terminal. To open another terminal in VS Code, choose **Terminal > New Terminal**, then activate `.venv` again before running commands.
 Always run commands from the project root folder (the one containing README.md).
 The dashboard's charts are view-only; zooming, panning, hover tooltips and chart-edit controls are disabled.
 Short, plain-language explanations for the EDA and model charts are in `reports/GRAPH_INTERPRETATIONS.md` and appear under the relevant dashboard charts.
@@ -56,10 +63,10 @@ Short, plain-language explanations for the EDA and model charts are in `reports/
 4. **Honest testing.** We split by time: oldest 70% to learn, next 15% to choose the best model, newest 15% to test after model selection. Never random, because that would let the model peek at the future. The training/validation graph checks for a generalization gap; a model cannot be guaranteed perfectly fitted.
 5. **Saving.** The best model (with all preprocessing inside) is saved as one file, `models/heatwave_pipeline.joblib`.
 6. **Using it.** The apps load that file. You type today's weather (or click "live") -> the app builds the same features -> the model outputs a probability -> if it is above the chosen threshold you get a danger warning.
-Both apps (Streamlit and FastAPI+HTML) use the same `src/predict.py`, so they always agree.
+The Streamlit dashboard uses `src/predict.py` for predictions.
 
 ## E. What to open during your demo
-Streamlit Home -> Heat Prediction (click Predict) -> Model Insights (table + charts) -> HF Space (same app) -> FastAPI page on localhost.
+Streamlit Home -> Heat Prediction (click Predict) -> Model Insights (table + charts).
 
 ## F. If something breaks
 | Problem | Fix |
@@ -72,4 +79,4 @@ Streamlit Home -> Heat Prediction (click Predict) -> Model Insights (table + cha
 | Live prediction fails in the app | no internet / Open-Meteo down; use "Manual scenario" |
 
 ## G. CT-378 items to finish before submission
-The local project includes the data pipeline, four tuned classifiers plus two baselines, saved model, EDA/evaluation charts, tests, Streamlit dashboard, and local FastAPI + HTML app. You still need to publish and test the public Streamlit Cloud and Hugging Face deployments, add your actual deployment links and screenshots, fill in all group members' real names/contributions, and prepare the 3–4 page PDF report. These steps require your accounts and team information.
+The local project includes the data pipeline, four tuned classifiers plus two baselines, saved model, EDA/evaluation charts, tests, and Streamlit dashboard. You still need to publish and test the public Streamlit Cloud deployment, add its actual link and screenshots, fill in all group members' real names/contributions, and prepare the 3–4 page PDF report. These steps require your accounts and team information.

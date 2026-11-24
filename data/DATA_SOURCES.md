@@ -10,7 +10,7 @@
 | Location | Grid cell at 24.86, 67.01 (Karachi) | Karachi Jinnah Intl Airport |
 | Rows downloaded | 16,802 | 15,618 |
 | Requested period | 1980-01-01 to 2025-12-31 | 1980-01-01 to 2025-12-31 |
-| **Download date (UTC)** | **2026-11-12 11:25** | **2026-11-12 11:25** |
+| **Download date (UTC)** | **2026-11-22 18:35** | **2026-11-22 18:35** |
 
 No personal identifiers are present in either dataset.
 
@@ -19,8 +19,8 @@ No personal identifiers are present in either dataset.
   (https://creativecommons.org/licenses/by/4.0/). Underlying data: ERA5 - Hersbach et al. (2020), Copernicus Climate Change Service.
   Open-Meteo's free API is for non-commercial use (this is an educational project).
 * NOAA: NOAA National Centers for Environmental Information. 1999. Global Surface Summary of the Day - GSOD. 1.0.
-  [Karachi Jinnah Intl Airport, station 41780099999]. NOAA NCEI. Accessed 2026-11-12.
-  NOAA gives no warranty on accuracy. NOAA open data has no general usage restrictions; NCEI notes that some international *commercial* use may be subject to WMO Resolution 40.
+  [Karachi Jinnah Intl Airport, station 41780099999]. NOAA NCEI. Accessed 2026-11-22.
+  NOAA gives no warranty on accuracy. NCEI notes that some international *commercial* use of data may be subject to WMO Resolution 40; not relevant to this educational use.
 
 ## Notes
 * ERA5 is a gridded reanalysis (~25 km); GSOD is a single airport station. They are different

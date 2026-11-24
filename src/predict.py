@@ -1,4 +1,4 @@
-"""Reusable prediction engine used by Streamlit AND FastAPI."""
+"""Reusable prediction engine used by the Streamlit dashboard."""
 import json
 from functools import lru_cache
 import joblib
